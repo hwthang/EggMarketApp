@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Dropdown } from "react-native-element-dropdown";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { RootDrawerParamList } from "../(ProductListNav)";
+import { router } from "expo-router";
 
 const AccountList = () => {
   const navigation = useNavigation<DrawerNavigationProp<RootDrawerParamList>>();
@@ -43,6 +44,7 @@ const AccountList = () => {
 
   const handleDetailPress = (accountId:any) => {
     // Handle navigating to details or showing details
+    router.push('/(tabs)/(Accounts)/details')
     console.log("Details for Account ID:", accountId);
   };
 
