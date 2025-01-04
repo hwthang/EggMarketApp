@@ -8,19 +8,19 @@ const AccountDetails = () => {
 
   // Sample account details
   const accountDetails = {
-    userId: "235oih21364o2ij5",
+    user_id: "235oih21364o2ij5",
     phone: "0933389823",
-    fullName: "Nguyễn Hưng",
+    fullname: "Nguyễn Hưng",
     gender: "Nam",
     role: "Nhân viên",
     address: "12/2, khu phố Đông A",
-    createdDate: "12/12/2024",
-    lastUpdatedDate: "12/12/2024",
+    user_created: "12/12/2024",
+    user_updated: "12/12/2024",
   };
 
   const handleDelete = () => {
     // Add your delete logic here
-    console.log("Delete employee:", accountDetails.userId);
+    console.log("Delete employee:", accountDetails.user_id);
     router.back()
   };
 
@@ -45,13 +45,13 @@ const AccountDetails = () => {
       {/* Account Details */}
       <View style={styles.detailsContainer}>
         <Text style={styles.detailText}>
-          <Text style={styles.boldText}>Mã người dùng:</Text> {accountDetails.userId}
+          <Text style={styles.boldText}>Mã người dùng:</Text> {accountDetails.user_id}
         </Text>
         <Text style={styles.detailText}>
           <Text style={styles.boldText}>Số điện thoại:</Text> {accountDetails.phone}
         </Text>
         <Text style={styles.detailText}>
-          <Text style={styles.boldText}>Họ tên:</Text> {accountDetails.fullName}
+          <Text style={styles.boldText}>Họ tên:</Text> {accountDetails.fullname}
         </Text>
         <Text style={styles.detailText}>
           <Text style={styles.boldText}>Giới tính:</Text> {accountDetails.gender}
@@ -63,10 +63,10 @@ const AccountDetails = () => {
           <Text style={styles.boldText}>Địa chỉ:</Text> {accountDetails.address}
         </Text>
         <Text style={styles.detailText}>
-          <Text style={styles.boldText}>Ngày tạo:</Text> {accountDetails.createdDate}
+          <Text style={styles.boldText}>Ngày tạo:</Text> {accountDetails.user_created}
         </Text>
         <Text style={styles.detailText}>
-          <Text style={styles.boldText}>Ngày cập nhật lần cuối:</Text> {accountDetails.lastUpdatedDate}
+          <Text style={styles.boldText}>Ngày cập nhật lần cuối:</Text> {accountDetails.user_updated}
         </Text>
       </View>
 

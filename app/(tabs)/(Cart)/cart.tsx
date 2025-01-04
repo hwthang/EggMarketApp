@@ -15,24 +15,24 @@ const CartScreen = () => {
   // Dữ liệu giỏ hàng
   const [cartItems, setCartItems] = useState([
     {
-      id: 'PRD000000',
-      name: 'Trứng gà C23',
-      unit: 'Hộp 6 quả',
-      price: 24000,
+      product_id: 'PRD000000',
+      product_name: 'Trứng gà C23',
+      unit_sold: 'Hộp 6 quả',
+      product_price: 24000,
       quantity: 3,
     },
     {
-      id: 'PRD000000',
-      name: 'Trứng gà C23',
-      unit: 'Hộp 6 quả',
-      price: 24000,
+      product_id: 'PRD000000',
+      product_name: 'Trứng gà C23',
+      unit_sold: 'Hộp 6 quả',
+      product_price: 24000,
       quantity: 3,
     },
   ]);
 
   // Tính tổng tiền
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cartItems.reduce((total, item) => total + item.product_price * item.quantity, 0);
   };
 
   // Xóa sản phẩm khỏi giỏ hàng
@@ -66,22 +66,22 @@ const navigation = useNavigation<DrawerNavigationProp<RootDrawerParamList>>();
           <View key={index} style={styles.cartItem}>
             <View>
               <Text style={styles.cartItemText}>
-                <Text style={styles.boldText}>Mã sản phẩm:</Text> {item.id}
+                <Text style={styles.boldText}>Mã sản phẩm:</Text> {item.product_id}
               </Text>
               <Text style={styles.cartItemText}>
-                <Text style={styles.boldText}>Tên sản phẩm:</Text> {item.name}
+                <Text style={styles.boldText}>Tên sản phẩm:</Text> {item.product_name}
               </Text>
               <Text style={styles.cartItemText}>
-                <Text style={styles.boldText}>Đơn vị bán:</Text> {item.unit}
+                <Text style={styles.boldText}>Đơn vị bán:</Text> {item.unit_sold}
               </Text>
               <Text style={styles.cartItemText}>
-                <Text style={styles.boldText}>Giá bán:</Text> {item.price.toLocaleString()} Đồng
+                <Text style={styles.boldText}>Giá bán:</Text> {item.product_price.toLocaleString()} Đồng
               </Text>
               <Text style={styles.cartItemText}>
                 <Text style={styles.boldText}>Số lượng:</Text> {item.quantity}
               </Text>
               <Text style={styles.cartItemText}>
-                <Text style={styles.boldText}>Thành tiền:</Text> {(item.price * item.quantity).toLocaleString()} Đồng
+                <Text style={styles.boldText}>Thành tiền:</Text> {(item.product_price * item.quantity).toLocaleString()} Đồng
               </Text>
             </View>
 

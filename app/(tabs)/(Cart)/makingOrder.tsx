@@ -11,12 +11,12 @@ import { Dropdown } from "react-native-element-dropdown";
 
 const OrderScreen = () => {
   // State variables for data
-  const [productName, setProductName] = useState("Trứng gà C23");
-  const [unit, setUnit] = useState("Hộp 6 quả");
-  const [quantity, setQuantity] = useState(3);
-  const [totalPrice, setTotalPrice] = useState(72000);
-  const [paymentMethod, setPaymentMethod] = useState("");
-  const [address, setAddress] = useState("19/2, khu phố Đông B");
+  const [product_name, setProductName] = useState("Trứng gà C23");
+  const [unit_sold, setUnit] = useState("Hộp 6 quả");
+  const [product_quantity, setQuantity] = useState(3);
+  const [order_amount, setTotalPrice] = useState(72000);
+  const [payment_method, setPaymentMethod] = useState("");
+  const [received_address, setAddress] = useState("19/2, khu phố Đông B");
 
   // Dropdown data
   const paymentOptions = [
@@ -26,14 +26,14 @@ const OrderScreen = () => {
   ];
 
   // Handle order submission
-  const handleOrder = () => {
+  const createOrder = () => {
     const orderDetails = {
-      productName,
-      unit,
-      quantity,
-      totalPrice,
-      paymentMethod,
-      address,
+      productName: product_name,
+      unit: unit_sold,
+      quantity: product_quantity,
+      totalPrice: order_amount,
+      paymentMethod: payment_method,
+      address: received_address,
     };
 
     console.log("Order Details:", orderDetails);
@@ -47,10 +47,10 @@ const OrderScreen = () => {
       <Text style={styles.header}>Đặt hàng</Text>
 
       <View style={styles.detailsContainer}>
-        <Text style={styles.text}>Sản phẩm: {productName}</Text>
-        <Text style={styles.text}>Đơn vị bán: {unit}</Text>
-        <Text style={styles.text}>Số lượng: {quantity}</Text>
-        <Text style={styles.text}>Thành tiền: {totalPrice.toLocaleString()} Đồng</Text>
+        <Text style={styles.text}>Sản phẩm: {product_name}</Text>
+        <Text style={styles.text}>Đơn vị bán: {unit_sold}</Text>
+        <Text style={styles.text}>Số lượng: {product_quantity}</Text>
+        <Text style={styles.text}>Thành tiền: {order_amount.toLocaleString()} Đồng</Text>
       </View>
 
       <Text style={styles.label}>Hình thức thanh toán</Text>
@@ -59,7 +59,7 @@ const OrderScreen = () => {
         data={paymentOptions}
         labelField="label"
         valueField="value"
-        value={paymentMethod}
+        value={payment_method}
         placeholder="Chọn hình thức thanh toán"
         onChange={(item) => setPaymentMethod(item.value)}
         containerStyle={styles.dropdownContainer}
@@ -69,11 +69,11 @@ const OrderScreen = () => {
       <Text style={styles.label}>Địa chỉ nhận hàng</Text>
       <TextInput
         style={styles.input}
-        value={address}
+        value={received_address}
         onChangeText={setAddress} // Allow the user to update the address
       />
 
-      <TouchableOpacity style={styles.button} onPress={handleOrder}>
+      <TouchableOpacity style={styles.button} onPress={createOrder}>
         <Text style={styles.buttonText}>Đặt hàng</Text>
       </TouchableOpacity>
     </View>

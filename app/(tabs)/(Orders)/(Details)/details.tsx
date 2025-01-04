@@ -9,42 +9,42 @@ import {
 } from 'react-native';
 
 type OrderDetails = {
-  id: string;
-  status: string;
-  createdDate: string;
-  lastUpdated: string;
-  staffName: string;
-  staffId: string;
-  customerName: string;
-  customerId: string;
-  address: string;
-  paymentMethod: string;
-  product: string;
-  unit: string;
-  price: string;
-  quantity: number;
-  totalPrice: string;
+  order_id: string;
+  order_status: string;
+  order_created: string;
+  order_updated: string;
+  employee_name: string;
+  employee_id: string;
+  customer_name: string;
+  customer_id: string;
+  received_address: string;
+  payment_method: string;
+  product_name: string;
+  unit_sold: string;
+  product_price: string;
+  product_quantity: number;
+  order_amount: string;
 };
 
 const OrderDetailsScreen: React.FC = () => {
   const [rejectionReason, setRejectionReason] = useState('');
 
   const order: OrderDetails = {
-    id: '67heyrhq9wejrou',
-    status: 'Đang vận chuyển',
-    createdDate: '23/12/2024',
-    lastUpdated: '23/12/2024',
-    staffName: 'Nguyễn Văn Hoàn',
-    staffId: '6weyrwe9r92374',
-    customerName: 'Đặng Hữu Thắng',
-    customerId: '8qweoi98123949',
-    address: '19/2, khu phố Đông B',
-    paymentMethod: 'Trực tiếp',
-    product: 'Trứng gà C23',
-    unit: 'Hộp 6 quả',
-    price: '24 000 Đồng',
-    quantity: 3,
-    totalPrice: '72 000 Đồng',
+    order_id: '67heyrhq9wejrou',
+    order_status: 'Đang vận chuyển',
+    order_created: '23/12/2024',
+    order_updated: '23/12/2024',
+    employee_name: 'Nguyễn Văn Hoàn',
+    employee_id: '6weyrwe9r92374',
+    customer_name: 'Đặng Hữu Thắng',
+    customer_id: '8qweoi98123949',
+    received_address: '19/2, khu phố Đông B',
+    payment_method: 'Trực tiếp',
+    product_name: 'Trứng gà C23',
+    unit_sold: 'Hộp 6 quả',
+    product_price: '24 000 Đồng',
+    product_quantity: 3,
+    order_amount: '72 000 Đồng',
   };
 
   const handleAccept = () => {
@@ -63,21 +63,21 @@ const OrderDetailsScreen: React.FC = () => {
         <Text style={styles.headerText}>Chi tiết đơn hàng</Text>
       </View>
       <View style={styles.detailsContainer}>
-        <Text>Mã đơn hàng: {order.id}</Text>
-        <Text>Tình trạng: {order.status}</Text>
-        <Text>Ngày tạo: {order.createdDate}</Text>
-        <Text>Ngày cập nhật lần cuối: {order.lastUpdated}</Text>
-        <Text>Nhân viên tiếp nhận: {order.staffName}</Text>
-        <Text>Mã nhân viên: {order.staffId}</Text>
-        <Text>Khách hàng: {order.customerName}</Text>
-        <Text>Mã khách hàng: {order.customerId}</Text>
-        <Text>Địa chỉ: {order.address}</Text>
-        <Text>Hình thức thanh toán: {order.paymentMethod}</Text>
-        <Text>Sản phẩm: {order.product}</Text>
-        <Text>Đơn vị bán: {order.unit}</Text>
-        <Text>Giá bán: {order.price}</Text>
-        <Text>Số lượng: {order.quantity}</Text>
-        <Text>Thành tiền: {order.totalPrice}</Text>
+        <Text>Mã đơn hàng: {order.order_id}</Text>
+        <Text>Tình trạng: {order.order_status}</Text>
+        <Text>Ngày tạo: {order.order_created}</Text>
+        <Text>Ngày cập nhật lần cuối: {order.order_updated}</Text>
+        <Text>Nhân viên tiếp nhận: {order.employee_name}</Text>
+        <Text>Mã nhân viên: {order.employee_id}</Text>
+        <Text>Khách hàng: {order.customer_name}</Text>
+        <Text>Mã khách hàng: {order.customer_id}</Text>
+        <Text>Địa chỉ: {order.received_address}</Text>
+        <Text>Hình thức thanh toán: {order.payment_method}</Text>
+        <Text>Sản phẩm: {order.product_name}</Text>
+        <Text>Đơn vị bán: {order.unit_sold}</Text>
+        <Text>Giá bán: {order.product_price}</Text>
+        <Text>Số lượng: {order.product_quantity}</Text>
+        <Text>Thành tiền: {order.order_amount}</Text>
 
         <Text style={styles.rejectionLabel}>Lý do từ chối</Text>
         <TextInput

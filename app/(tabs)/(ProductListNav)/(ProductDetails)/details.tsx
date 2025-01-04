@@ -14,15 +14,15 @@ import { router } from 'expo-router';
 const ProductDetailsScreen = () => {
   // Biến chứa thông tin sản phẩm
   const product = {
-    id: 'PRD000000',
-    name: 'Trứng gà C23',
-    description: 'Loại trứng có kích thước vừa',
-    origin: 'Trang Trại Phương Hân',
-    categories: 'Trứng gà, Xuất khẩu',
+    product_id: 'PRD000000',
+    product_name: 'Trứng gà C23',
+    product_description: 'Loại trứng có kích thước vừa',
+    product_origin: 'Trang Trại Phương Hân',
+    product_categories: 'Trứng gà, Xuất khẩu',
     unit_sold: 'Hộp 6 quả',
-    price: '24 000 Đồng',
-    sales: 100,
-    imgs: [
+    product_price: '24 000 Đồng',
+    sales_count: 100,
+    product_imgs: [
       'https://via.placeholder.com/150', // URL ảnh 1
       'https://via.placeholder.com/150', // URL ảnh 2
     ],
@@ -46,35 +46,35 @@ const ProductDetailsScreen = () => {
 
       {/* Product Images */}
       <View style={styles.imageContainer}>
-        {product.imgs.map((image, index) => (
+        {product.product_imgs.map((image, index) => (
           <Image key={index} source={{ uri: image }} style={styles.productImage} />
         ))}
       </View>
 
       {/* Product Details */}
       <View style={styles.detailsContainer}>
-        <Text style={styles.productName}>{product.name}</Text>
+        <Text style={styles.productName}>{product.product_name}</Text>
 
         <Text style={styles.detailText}>
-          <Text style={styles.boldText}>Mã sản phẩm:</Text> {product.id}
+          <Text style={styles.boldText}>Mã sản phẩm:</Text> {product.product_id}
         </Text>
         <Text style={styles.detailText}>
-          <Text style={styles.boldText}>Mô tả sản phẩm:</Text> {product.description}
+          <Text style={styles.boldText}>Mô tả sản phẩm:</Text> {product.product_description}
         </Text>
         <Text style={styles.detailText}>
-          <Text style={styles.boldText}>Nguồn gốc sản phẩm:</Text> {product.origin}
+          <Text style={styles.boldText}>Nguồn gốc sản phẩm:</Text> {product.product_origin}
         </Text>
         <Text style={styles.detailText}>
-          <Text style={styles.boldText}>Loại sản phẩm:</Text> {product.categories}
+          <Text style={styles.boldText}>Loại sản phẩm:</Text> {product.product_categories}
         </Text>
         <Text style={styles.detailText}>
           <Text style={styles.boldText}>Đơn vị bán:</Text> {product.unit_sold}
         </Text>
         <Text style={styles.detailText}>
-          <Text style={styles.boldText}>Giá bán:</Text> {product.price}
+          <Text style={styles.boldText}>Giá bán:</Text> {product.product_price}
         </Text>
         <Text style={styles.detailText}>
-          <Text style={styles.boldText}>Lượt bán:</Text> {product.sales}
+          <Text style={styles.boldText}>Lượt bán:</Text> {product.sales_count}
         </Text>
 
         {/* Quantity Input */}

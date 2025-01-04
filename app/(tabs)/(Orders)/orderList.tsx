@@ -6,45 +6,45 @@ import { RootDrawerParamList } from '../(ProductListNav)';
 import { MaterialIcons } from '@expo/vector-icons';
 
 type Order = {
-  id: string;
-  status: string;
-  product: string;
-  quantity: number;
-  totalPrice: string;
+  order_id: string;
+  order_status: string;
+  product_name: string;
+  product_quantity: number;
+  order_amount: string;
 };
 
 const OrderListScreen: React.FC = () => {
-  const [search, setSearch] = useState('');
-  const [filter, setFilter] = useState('Tất cả');
+  const [search_value, setSearch] = useState('');
+  const [filter_value, setFilter] = useState('Tất cả');
   const orders: Order[] = [
     {
-      id: '6er456ret6erty7',
-      status: 'Đang vận chuyển',
-      product: 'Trứng gà C23',
-      quantity: 3,
-      totalPrice: '72 000 Đồng',
+      order_id: '6er456ret6erty7',
+      order_status: 'Đang vận chuyển',
+      product_name: 'Trứng gà C23',
+      product_quantity: 3,
+      order_amount: '72 000 Đồng',
     },
     {
-      id: '2ab345ghj6erty8',
-      status: 'Đang xử lý',
-      product: 'Trứng gà C24',
-      quantity: 5,
-      totalPrice: '120 000 Đồng',
+      order_id: '2ab345ghj6erty8',
+      order_status: 'Đang xử lý',
+      product_name: 'Trứng gà C24',
+      product_quantity: 5,
+      order_amount: '120 000 Đồng',
     },
     // Add more orders here
   ];
 
   const filteredOrders = orders.filter((order) =>
-    order.id.includes(search) && (filter === 'Tất cả' || order.status === filter)
+    order.order_id.includes(search_value) && (filter_value === 'Tất cả' || order.order_status === filter_value)
   );
 
-  const renderOrder = ({ item }: { item: Order }) => (
+  const renderOrderItem = ({ item }: { item: Order }) => (
     <View style={styles.orderCard}>
-      <Text>Mã đơn hàng: {item.id}</Text>
-      <Text>Tình trạng: {item.status}</Text>
-      <Text>Sản phẩm: {item.product}</Text>
-      <Text>Số lượng mua: {item.quantity}</Text>
-      <Text>Thành tiền: {item.totalPrice}</Text>
+      <Text>Mã đơn hàng: {item.order_id}</Text>
+      <Text>Tình trạng: {item.order_status}</Text>
+      <Text>Sản phẩm: {item.product_name}</Text>
+      <Text>Số lượng mua: {item.product_quantity}</Text>
+      <Text>Thành tiền: {item.order_amount}</Text>
       <TouchableOpacity onPress={()=>router.push('/(tabs)/(Orders)/(Details)/details')}>
         <Text style={styles.detailButton}>Chi tiết</Text>
       </TouchableOpacity>
@@ -62,22 +62,22 @@ const navigation = useNavigation<DrawerNavigationProp<RootDrawerParamList>>();
       <TextInput
         style={styles.searchInput}
         placeholder="Nhập mã đơn hàng"
-        value={search}
+        value={search_value}
         onChangeText={setSearch}
       />
       <View style={styles.filterContainer}>
         <Text style={styles.filterLabel}>Bộ lọc</Text>
         <TextInput
           style={styles.filterInput}
-          value={filter}
+          value={filter_value}
           onChangeText={setFilter}
           placeholder="Tất cả"
         />
       </View>
       <FlatList
         data={filteredOrders}
-        keyExtractor={(item) => item.id}
-        renderItem={renderOrder}
+        keyExtractor={(item) => item.order_id}
+        renderItem={renderOrderItem}
       />
     </View>
   );

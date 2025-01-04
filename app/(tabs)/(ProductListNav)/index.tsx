@@ -16,7 +16,7 @@ import { DrawerNavigationProp } from '@react-navigation/drawer';
 type Product = {
   product_id: string;
   product_name: string;
-  product_description: string;
+  product_categories: string;
   product_price: string;
   unit_sold: string;
   sales_count: number;
@@ -38,7 +38,7 @@ const ProductListScreen = () => {
     {
       product_id: '1',
       product_name: 'Trứng gà ta C23',
-      product_description: 'Trứng gà, Xuất khẩu,...',
+      product_categories: 'Trứng gà, Xuất khẩu,...',
       product_price: '24,000 Đồng',
       sales_count: 100,
       unit_sold: 'Hộp 6 quả',
@@ -47,7 +47,7 @@ const ProductListScreen = () => {
     {
       product_id: '2',
       product_name: 'Trứng vịt ta',
-      product_description: 'Trứng vịt, Nội địa',
+      product_categories: 'Trứng vịt, Nội địa',
       product_price: '22,000 Đồng',
       sales_count: 50,
       unit_sold: 'Hộp 6 quả',
@@ -73,7 +73,7 @@ const ProductListScreen = () => {
       <Image source={{ uri: item.product_imgs }} style={styles.productImage} />
       <View style={styles.productInfo}>
         <Text style={styles.productTitle}>{item.product_name}</Text>
-        <Text style={styles.productDescription}>{item.product_description}</Text>
+        <Text style={styles.productDescription}>{item.product_categories}</Text>
         <Text style={styles.productPrice}>{item.product_price}/{item.unit_sold}</Text>
         <Text style={styles.productSales}>Lượt bán: {item.sales_count}</Text>
         <TouchableOpacity onPress={()=> router.push('/(tabs)/(ProductListNav)/(ProductDetails)/details')}>

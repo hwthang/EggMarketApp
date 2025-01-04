@@ -15,20 +15,20 @@ import { router } from "expo-router";
 
 const AccountList = () => {
   const navigation = useNavigation<DrawerNavigationProp<RootDrawerParamList>>();
-  const [filter, setFilter] = useState("Tất cả");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [filter_value, setFilter] = useState("Tất cả");
+  const [search_value, setSearchQuery] = useState("");
   const [accounts, setAccounts] = useState([
     {
-      id: "1",
-      username: "235oih21364o2ij5",
+      index: "1",
+      user_id: "235oih21364o2ij5",
       fullName: "Đặng Hữu Thắng",
       gender: "Nam",
       phone: "0933386018",
       role: "Khách hàng",
     },
     {
-      id: "2",
-      username: "235oih21364o2ij5",
+      index: "2",
+      user_id: "235oih21364o2ij5",
       fullName: "Đặng Hữu Thắng",
       gender: "Nam",
       phone: "0933386018",
@@ -62,7 +62,7 @@ const AccountList = () => {
       <TextInput
         style={styles.searchInput}
         placeholder="Nhập tên hoặc mã người dùng"
-        value={searchQuery}
+        value={search_value}
         onChangeText={setSearchQuery}
       />
 
@@ -73,8 +73,8 @@ const AccountList = () => {
           data={filters}
           labelField="label"
           valueField="value"
-          value={filter}
-          placeholder={filter}
+          value={filter_value}
+          placeholder={filter_value}
           onChange={(item) => setFilter(item.value)}
         />
         <TouchableOpacity style={styles.addButton}>
@@ -85,11 +85,11 @@ const AccountList = () => {
       {/* Account List */}
       <FlatList
         data={accounts}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.index}
         renderItem={({ item }) => (
           <View style={styles.accountCard}>
             <Text style={styles.accountText}>
-              <Text style={styles.boldText}>Mã người dùng:</Text> {item.username}
+              <Text style={styles.boldText}>Mã người dùng:</Text> {item.user_id}
             </Text>
             <Text style={styles.accountText}>
               <Text style={styles.boldText}>Họ tên:</Text> {item.fullName}
@@ -104,7 +104,7 @@ const AccountList = () => {
               <Text style={styles.boldText}>Vai trò:</Text> {item.role}
             </Text>
             <TouchableOpacity
-              onPress={() => handleDetailPress(item.id)}
+              onPress={() => handleDetailPress(item.index)}
               style={styles.detailButton}
             >
               <Text style={styles.detailButtonText}>Chi tiết</Text>
