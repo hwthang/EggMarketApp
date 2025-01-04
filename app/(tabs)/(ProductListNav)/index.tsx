@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Dropdown } from 'react-native-element-dropdown';
-import { router } from 'expo-router';
+import { router, useNavigation } from 'expo-router';
+import { DrawerNavigationProp } from '@react-navigation/drawer';
 
 type Product = {
   product_id: string;
@@ -20,6 +21,14 @@ type Product = {
   unit_sold: string;
   sales_count: number;
   product_imgs: string;
+};
+
+export type RootDrawerParamList = {
+  Courses: any;
+  MyCourses: any;
+  Classes: any;
+  ScheduleOrSalary: any;
+  Salary: any;
 };
 
 const ProductListScreen = () => {
@@ -59,7 +68,7 @@ const ProductListScreen = () => {
 
   // );
 
-  const renderProduct = ({ item }: { item: Product }) => (
+  const renderProductItem = ({ item }: { item: Product }) => (
     <View style={styles.productCard}>
       <Image source={{ uri: item.product_imgs }} style={styles.productImage} />
       <View style={styles.productInfo}>
@@ -88,11 +97,15 @@ const ProductListScreen = () => {
     );
   };
 
+  const navigation = useNavigation<DrawerNavigationProp<RootDrawerParamList>>();
   return (
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
         <MaterialIcons name="menu" size={28} color="white" />
+        </TouchableOpacity>
+        
         <Text style={styles.headerTitle}>Danh sách sản phẩm</Text>
       </View>
 
@@ -133,7 +146,7 @@ const ProductListScreen = () => {
         <FlatList
        
           data={filteredProducts}
-          renderItem={renderProduct}
+          renderItem={renderProductItem}
           keyExtractor={(item) => item.product_id}
           contentContainerStyle={styles.productList}
         />

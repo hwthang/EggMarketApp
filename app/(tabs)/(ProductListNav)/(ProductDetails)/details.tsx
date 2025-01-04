@@ -30,8 +30,8 @@ const ProductDetailsScreen = () => {
 
   const [buy_count, setQuantity] = useState<string>(''); // Số lượng mua
 
-  const handleAddToCart = () => {
-   
+  const addToCart = () => {
+   router.push('/(tabs)/(Cart)/cart')
   };
 
   return (
@@ -90,7 +90,7 @@ const ProductDetailsScreen = () => {
         />
 
         {/* Add to Cart Button */}
-        <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
+        <TouchableOpacity style={styles.addToCartButton} onPress={addToCart}>
           <Text style={styles.addToCartButtonText}>Thêm vào giỏ hàng</Text>
         </TouchableOpacity>
 
